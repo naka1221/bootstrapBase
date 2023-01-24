@@ -30,8 +30,7 @@ const listToggle = document.querySelector('.list-toggle')
 const closebtn = document.querySelector('.close')
 const overlay = document.querySelector('.overlay-left')
 
-// const body =document.querySelector("body")
-
+const bodys =document.querySelector("body")
 
 toggle.addEventListener('click' , function(){
  listToggle.classList.remove('hid')
@@ -41,8 +40,7 @@ toggle.addEventListener('click' , function(){
  closebtn.classList.remove('hide')
  closebtn.classList.add('show')
  overlay.classList.add('open')
- body.style.filter ='blur(0px)'
-
+//  body.style.filter ='blur(0px)'
 })
 
 
@@ -53,7 +51,6 @@ closebtn.addEventListener('click', function(){
     toggle.classList.add('show')
     closebtn.classList.add('show')
     overlay.classList.remove('open')  
-    frag=1
 })
 
 
@@ -157,6 +154,39 @@ function closebn(){
 
 
 document.body.addEventListener('keyup' , keyexe)
+
 closebtns.addEventListener('click' , closebn)
 
+document.body.addEventListener('keyup' , closebtnnav)
 
+overlay.addEventListener('click' , clos)
+
+
+function closebtnnav(event){
+  if (event.keyCode === 27){
+ listToggle.classList.add('hid')
+    listToggle.classList.remove('open')
+    toggle.classList.remove('hide')
+    toggle.classList.add('show')
+    closebtn.classList.add('show')
+    overlay.classList.remove('open')  
+  }
+   
+}
+
+const listTogglelink= document.querySelectorAll(".list-toggle__list-link")
+
+listTogglelink.forEach(link => {
+  link.addEventListener("click", clos )
+
+})
+
+
+function clos(){
+ listToggle.classList.add('hid')
+    listToggle.classList.remove('open')
+    toggle.classList.remove('hide')
+    toggle.classList.add('show')
+    closebtn.classList.add('show')
+    overlay.classList.remove('open')  
+}
